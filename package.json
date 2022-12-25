@@ -1,8 +1,8 @@
 {
-  "name": "nodegui-starter",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Atul R <atulanand94@gmail.com>",
+  "name": "hashbrown-ytdl",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "author": "canarado",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -11,7 +11,8 @@
     "debug": "webpack && qode --inspect ./dist/index.js"
   },
   "dependencies": {
-    "@nodegui/nodegui": "^0.57.1"
+    "@nodegui/nodegui": "^0.57.1",
+    "ytdl-core": "^4.11.2"
   },
   "devDependencies": {
     "@nodegui/packer": "^1.5.0",
