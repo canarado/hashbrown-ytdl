@@ -1,5 +1,4 @@
-import { FileMode, QPushButton, QMainWindow, QWidget, QLabel, FlexLayout, QFileDialog, QLineEdit } from "@nodegui/nodegui";
-import { ButtonRole, QMessageBox } from "@nodegui/nodegui/dist/lib/QtWidgets/QMessageBox";
+import { ButtonRole, QMessageBox, FileMode, QPushButton, QMainWindow, QWidget, QLabel, FlexLayout, QFileDialog, QLineEdit } from "@nodegui/nodegui";
 import ytdl = require("ytdl-core");
 import { createWriteStream } from "fs";
 
@@ -65,11 +64,9 @@ downloadButton.addEventListener("clicked", (c) => {
       downloadedBox.exec();
     });
 
-
     urlInput.clear();
   }
 });
-
 
 // add shit to view
 urlLayout.addWidget(urlLabel);
