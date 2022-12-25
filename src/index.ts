@@ -46,17 +46,25 @@ downloadButton.addEventListener("clicked", (c) => {
     fileDialog.exec();
 
     const selectedFiles = fileDialog.selectedFiles();
-    ytdl(currentUrl, {
+    let writeStream = ytdl(currentUrl, {
       quality: 'highest',
       filter: 'videoandaudio'
     }).pipe(createWriteStream(`${selectedFiles[0]}.mp4`));
 
     const messageBox = new QMessageBox();
-    messageBox.setText("Video succesfully downloaded");
-    const accept = new QPushButton();
-    accept.setText("Yay!!");
-    messageBox.addButton(accept, ButtonRole.AcceptRole);
-    messageBox.exec();
+    messageBox.setText("Downloading video");
+    messageBox.show();
+    writeStream.on("finish", () => {
+      messageBox.close();
+      messageBox.delete();
+      const downloadedBox = new QMessageBox();
+      downloadedBox.setText("Video succesfully downloaded");
+      const accept = new QPushButton();
+      accept.setText("Yay!!");
+      downloadedBox.addButton(accept, ButtonRole.AcceptRole);
+      downloadedBox.exec();
+    });
+
 
     urlInput.clear();
   }
